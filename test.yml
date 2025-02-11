@@ -68,6 +68,39 @@ paths:
                     - id: 4
                       name: Toufik
 
+  /pets/{id}:
+    get:
+      summary: Get a pet by ID
+      operationId: getPetById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the pet to retrieve
+          schema:
+            type: string
+          examples:
+            pet_1:
+              value: '1'
+            pet_2:
+              value: '2'
+      responses:
+        '200':
+          description: Details of a pet.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+              examples:
+                pet_1:
+                  value:
+                    id: 1
+                    name: Zaza
+                pet_2:
+                  value:
+                    id: 2
+                    name: Tigress
+
 components:
   schemas:
     Pet:
